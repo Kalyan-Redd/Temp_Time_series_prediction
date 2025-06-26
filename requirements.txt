@@ -1,6 +1,8 @@
 numpy
 pandas
-tensorflow
+scikit-learn
+tensorflow==2.15.0
+keras
+joblib
 streamlit
-Joblib
-matplotlib
+h5py

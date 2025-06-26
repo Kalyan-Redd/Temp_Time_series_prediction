@@ -7,8 +7,8 @@ from tensorflow.keras.losses import MeanSquaredError
 import matplotlib.pyplot as plt
 
 # Streamlit Page Setup
-st.set_page_config(page_title="🌡️ Temperature Forecast", layout="centered")
-st.title("🌡️ Next Day Temperature Predictor")
+st.set_page_config(page_title=" Temperature Forecast", layout="centered")
+st.title(" Next Day Temperature Predictor")
 
 # Load model and scaler
 model = load_model("model.h5", compile=False)
@@ -46,7 +46,7 @@ y_pred = scaler.inverse_transform(y_pred_scaled)
 y_test_actual = scaler.inverse_transform(y_test)
 
 # Plot results
-st.subheader("📉 Actual vs Predicted Temperatures")
+st.subheader(" Actual vs Predicted Temperatures")
 fig, ax = plt.subplots()
 ax.plot(y_test_actual, label='Actual Temp', color='blue')
 ax.plot(y_pred, label='Predicted Temp', color='orange')
@@ -61,5 +61,5 @@ next_temp_scaled = model.predict(last_sequence)
 next_temp_scaled = np.clip(next_temp_scaled, 0, 1)
 next_temp = scaler.inverse_transform(next_temp_scaled)
 
-st.subheader("🔮 Predicted Temperature for Next Day:")
+st.subheader(" Predicted Temperature for Next Day:")
 st.success(f"{next_temp[0][0]:.2f} °C")
